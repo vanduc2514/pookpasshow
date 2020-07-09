@@ -32,6 +32,16 @@ export class TodoComponent implements OnInit {
   }
 
   toggleTodo(i): void {
+    const todo = this.todoList[i];
+    console.log(todo);
+    console.log('Todo status: ' + todo.completed);
+    const todoData = {
+      ...todo,
+      completed: !todo.completed
+    };
+    this.todoService.updateTodo(todoData).subscribe(next => {
+      this.todoList[i].completed = next.completed;
+    });
   }
 
   addTodo(): void {

@@ -18,4 +18,8 @@ export class TodoService {
       map(data => data.filter((todo, index) => index < count)
       ));
   }
+
+  updateTodo(todo: ITodo): Observable<ITodo> {
+    return this.httpClient.patch<ITodo>(`${this.API_URL}/${todo.id}`, todo);
+  }
 }
