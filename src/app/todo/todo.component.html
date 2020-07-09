@@ -2,16 +2,22 @@
 
 <div class="mat-app-background basic-container">
   <ng-container *ngFor="let todo of todoList; index as i">
-  <mat-accordion>
-    <mat-expansion-panel>
-      <mat-expansion-panel-header>
-        <mat-panel-title>
-          {{todo.title}}
-        </mat-panel-title>
-      </mat-expansion-panel-header>
-      <p>Id: {{todo.id}}</p>
-    </mat-expansion-panel>
-  </mat-accordion>
+    <mat-accordion>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title [class.completed]="todo.completed">
+            {{todo.title}}
+          </mat-panel-title>
+          <mat-panel-description>
+            <mat-checkbox (click)="toggleTodo(i)">Done</mat-checkbox>
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <div class="todo-detail">
+          <span [class.completed]="todo.completed">Id: {{todo.id}}</span>
+          <button mat-raised-button color="warn">Delete</button>
+        </div>
+      </mat-expansion-panel>
+    </mat-accordion>
   </ng-container>
 </div>
 
