@@ -19,12 +19,16 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatCardModule} from '@angular/material/card';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
+import { BlogEditComponent } from './blog/blog-edit/blog-edit.component';
+import { BlogDetailComponent } from './blog/blog-detail/blog-detail.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TodoComponent,
     BlogComponent,
+    BlogEditComponent,
+    BlogDetailComponent,
   ],
   imports: [
     BrowserModule,

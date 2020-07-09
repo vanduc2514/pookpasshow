@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
-import {ITodo} from './itodo';
+import {ITodo} from './model/itodo';
 import {map} from 'rxjs/operators';
 
 @Injectable({

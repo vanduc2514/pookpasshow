@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {ITodo} from '../itodo';
+import {ITodo} from '../model/itodo';
 import {FormControl} from '@angular/forms';
 import {TodoService} from '../todo.service';
 import {Observer} from 'rxjs';
