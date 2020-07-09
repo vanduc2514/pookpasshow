@@ -1,1 +1,14 @@
-<app-todo></app-todo>
+<p>
+  <mat-toolbar color="primary">
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+      <mat-icon>menu</mat-icon>
+    </button>
+
+    <a mat-button routerLink="todo"><span class="mat-title">Todo App</span></a>
+
+    <button mat-button routerLink="blog"><span class="mat-title">Blog App</span></button>
+
+    <span class="example-spacer"></span>
+  </mat-toolbar>
+</p>
+<router-outlet></router-outlet>
