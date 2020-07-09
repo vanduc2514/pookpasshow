@@ -24,7 +24,7 @@ export class TodoComponent implements OnInit {
   addTodo(): void {
   }
 
-  deleteTodo(): void {
+  deleteTodo(i): void {
   }
 
 }

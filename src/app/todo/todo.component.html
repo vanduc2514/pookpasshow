@@ -4,3 +4,16 @@
   <label for="add-todo">Add Todo </label>
   <input id="add-todo" type="text" [formControl]="inputControl" (keydown.enter)="addTodo()">
 </div>
+
+<ul>
+  <ng-container *ngFor="let todo of todoList; index as i">
+    <li [class.completed]="todo.completed">
+      <div (click)="toggleTodo(i)">
+        Id: {{todo.id}}
+        <br>
+        {{todo.title}}
+      </div>
+    </li>
+    <button (click)="deleteTodo(i)">Delete</button>
+  </ng-container>
+</ul>
