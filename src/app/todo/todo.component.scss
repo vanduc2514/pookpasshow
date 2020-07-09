@@ -2,3 +2,20 @@
   text-decoration: line-through;
   color: gray;
 }
+
+.mat-expansion-panel-header-title,
+.mat-expansion-panel-header-description {
+  flex-basis: 0;
+}
+
+.mat-expansion-panel-header-description {
+  margin-top: auto;
+  margin-bottom: auto;
+  justify-content: flex-end;
+}
+
+.todo-detail button {
+  float: right;
+  right: 20px;
+  bottom: 8px;
+}

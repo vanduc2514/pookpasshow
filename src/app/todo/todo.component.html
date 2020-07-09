@@ -12,10 +12,12 @@
             <mat-checkbox (click)="toggleTodo(i)">Done</mat-checkbox>
           </mat-panel-description>
         </mat-expansion-panel-header>
-        <div class="todo-detail">
-          <span [class.completed]="todo.completed">Id: {{todo.id}}</span>
-          <button mat-raised-button color="warn" (click)="deleteTodo(i)">Delete</button>
-        </div>
+        <mat-card>
+          <div class="todo-detail">
+            <span [class.completed]="todo.completed">Id: {{todo.id}}</span>
+            <button mat-raised-button color="warn" (click)="deleteTodo(i)">Delete</button>
+          </div>
+        </mat-card>
       </mat-expansion-panel>
     </mat-accordion>
   </ng-container>
