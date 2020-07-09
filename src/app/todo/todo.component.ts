@@ -48,6 +48,9 @@ export class TodoComponent implements OnInit {
   }
 
   deleteTodo(i): void {
+    const todo = this.todoList[i];
+    console.log(todo);
+    console.log('Jump to delete Function');
   }
 
 }
