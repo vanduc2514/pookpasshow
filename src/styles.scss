@@ -15,20 +15,7 @@ body {
   margin: 0;
 }
 .basic-container {
-  padding: 30px;
-}
-
-.example-spacer {
-  flex: 1 1 auto;
-}
-
-mat-drawer-content {
-  padding: 12px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-
-.basic-container {
-  padding: 30px;
+  padding-left: 100px;
+  padding-right: 100px;
+  padding-top: 50px
 }
