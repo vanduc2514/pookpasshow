@@ -37,6 +37,8 @@ export class TodoComponent implements OnInit {
   }
 
   addTodo(): void {
+    console.log('Jump into add Function');
+    console.log(this.inputControl.value);
   }
 
   deleteTodo(i): void {
