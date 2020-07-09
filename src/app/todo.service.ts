@@ -26,4 +26,8 @@ export class TodoService {
   deleteTodo(id: number): Observable<any> {
     return this.httpClient.delete(`${this.API_URL}/${id}`);
   }
+
+  createTodo(todo: ITodo): Observable<ITodo> {
+    return this.httpClient.post<ITodo>(`${this.API_URL}`, todo);
+  }
 }
