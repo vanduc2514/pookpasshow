@@ -16,6 +16,13 @@ export class TodoComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.todoService.getTodoList().subscribe(next => {
+      this.todoList = next;
+    }, error => {
+      console.log(error);
+    }, () => {
+      console.log('complete');
+    });
   }
 
   toggleTodo(i): void {
