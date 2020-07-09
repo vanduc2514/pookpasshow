@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {ITodo} from '../itodo';
+import {FormControl} from '@angular/forms';
+import {TodoService} from '../todo.service';
 
 @Component({
   selector: 'app-todo',
@@ -6,10 +9,22 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./todo.component.scss']
 })
 export class TodoComponent implements OnInit {
+  todoList: ITodo[] = [];
+  inputControl = new FormControl('');
 
-  constructor() { }
+  constructor(private todoService: TodoService) {
+  }
 
   ngOnInit(): void {
+  }
+
+  toggleTodo(i): void {
+  }
+
+  addTodo(): void {
+  }
+
+  deleteTodo(): void {
   }
 
 }

@@ -72,7 +72,8 @@
             "production": {
               "browserTarget": "demo-angularhttp-projects:build:production"
             }
-          }
+          },
+          "port": 4000
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
