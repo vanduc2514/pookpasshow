@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "demo-angularhttp-projects"
+    }
+  },
+  "defaultProject": "demo-angularhttp-projects",
+  "cli": {
+    "analytics": false
+  }
 }
