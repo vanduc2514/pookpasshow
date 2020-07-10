@@ -16,7 +16,7 @@ export class BlogComponent implements OnInit {
 
   ngOnInit(): void {
     this.postTitle = new FormControl('', [Validators.required, Validators.minLength(15)]);
-    this.postContent = new FormControl('', [Validators.required, Validators.minLength(15)]);
+    this.postContent = new FormControl('', [Validators.required, Validators.minLength(20)]);
     this.postForm = this.formBuilder.group({
       title: this.postTitle,
       content: this.postContent

@@ -9,20 +9,32 @@
         <mat-icon matSuffix>title</mat-icon>
       </mat-form-field>
       <ng-container *ngIf="postForm.invalid && postForm.touched">
-        <mat-error *ngIf="postForm.get('title').hasError('required')">{{titleLabel}} is Required</mat-error>
+        <mat-error *ngIf="postForm.get('title').hasError('required')">
+          {{titleLabel.innerText}} is Required
+        </mat-error>
         <mat-error *ngIf="postForm.get('title').hasError('minlength')">
-          {{titleLabel}} min length at least {{postForm.errors.minlength.requiredLength}}
+          {{titleLabel.innerText}} must contains at least {{postForm.get('title').errors.minlength["requiredLength"]}}
+          characters
         </mat-error>
       </ng-container>
     </p>
 
     <p>
       <mat-form-field appearance="outline">
-        <mat-label>Content</mat-label>
+        <mat-label #contentLabel>Content</mat-label>
         <label for="blog-content"></label>
         <input id="blog-content" matInput placeholder="Something Interesting ..." [formControl]="postContent">
         <mat-icon matSuffix>notes</mat-icon>
       </mat-form-field>
+      <ng-container *ngIf="postForm.invalid && postForm.touched">
+        <mat-error *ngIf="postForm.get('title').hasError('required')">
+          {{contentLabel.innerText}} is Required
+        </mat-error>
+        <mat-error *ngIf="postForm.get('title').hasError('minlength')">
+          {{contentLabel.innerText}} must contains at least {{postForm.get('title').errors.minlength["requiredLength"]}}
+          characters
+        </mat-error>
+      </ng-container>
     </p>
 
     <p>
