@@ -21,6 +21,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import { BlogEditComponent } from './blog/blog-edit/blog-edit.component';
 import { BlogDetailComponent } from './blog/blog-detail/blog-detail.component';
+import {FlexLayoutModule} from '@angular/flex-layout';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import { BlogDetailComponent } from './blog/blog-detail/blog-detail.component';
     MatCheckboxModule,
     MatCardModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    FlexLayoutModule
   ],
   providers: [],
   bootstrap: [AppComponent]
