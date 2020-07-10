@@ -1,47 +1,10 @@
 <div class="mat-app-background basic-container">
 
-  <form [formGroup]="postForm" (ngSubmit)="onSubmit()">
-    <p>
-      <mat-form-field appearance="outline">
-        <mat-label #titleLabel>Title</mat-label>
-        <label for="blog-title"></label>
-        <input id="blog-title" matInput placeholder="Something Interesting ..." [formControl]="postTitle">
-        <mat-icon matSuffix>title</mat-icon>
-      </mat-form-field>
-      <ng-container *ngIf="postForm.invalid && postForm.touched">
-        <mat-error *ngIf="postForm.get('title').hasError('required')">
-          {{titleLabel.innerText}} is Required
-        </mat-error>
-        <mat-error *ngIf="postForm.get('title').hasError('minlength')">
-          {{titleLabel.innerText}} must contains at least {{postForm.get('title').errors.minlength["requiredLength"]}}
-          characters
-        </mat-error>
-      </ng-container>
-    </p>
-
-    <p>
-      <mat-form-field appearance="outline">
-        <mat-label #contentLabel>Content</mat-label>
-        <label for="blog-content"></label>
-        <input id="blog-content" matInput placeholder="Something Interesting ..." [formControl]="postContent">
-        <mat-icon matSuffix>notes</mat-icon>
-      </mat-form-field>
-      <ng-container *ngIf="postForm.invalid && postForm.touched">
-        <mat-error *ngIf="postForm.get('title').hasError('required')">
-          {{contentLabel.innerText}} is Required
-        </mat-error>
-        <mat-error *ngIf="postForm.get('title').hasError('minlength')">
-          {{contentLabel.innerText}} must contains at least {{postForm.get('title').errors.minlength["requiredLength"]}}
-          characters
-        </mat-error>
-      </ng-container>
-    </p>
-    <button mat-raised-button="primary">Submit</button>
-  </form>
+  <app-blog-add></app-blog-add>
   <br><br>
-  <div fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="space-around center" fxLayoutGap="25px">
+  <div fxLayout="column" fxLayout.xs="column" fxLayoutAlign="space-between center" fxLayoutGap="25px">
     <ng-container *ngFor="let post of postList">
-      <mat-card fxFlex="calc(33%-25px)" fxFlex.sm="calc(50%-25px)">
+      <mat-card fxFlex="calc(33%-35px)" fxFlex.sm="calc(50%-25px)">
         <mat-card-header>
           <div mat-card-avatar class="example-header-image"></div>
           <mat-card-title>{{post.title}}</mat-card-title>

@@ -22,6 +22,7 @@ import {MatInputModule} from '@angular/material/input';
 import { BlogEditComponent } from './blog/blog-edit/blog-edit.component';
 import { BlogDetailComponent } from './blog/blog-detail/blog-detail.component';
 import {FlexLayoutModule} from '@angular/flex-layout';
+import { BlogAddComponent } from './blog/blog-add/blog-add.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import {FlexLayoutModule} from '@angular/flex-layout';
     BlogComponent,
     BlogEditComponent,
     BlogDetailComponent,
+    BlogAddComponent,
   ],
   imports: [
     BrowserModule,
