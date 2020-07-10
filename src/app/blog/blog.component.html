@@ -1,3 +1,37 @@
 <div class="mat-app-background basic-container">
-<p>blog works!</p>
+
+  <form [formGroup]="postForm" (ngSubmit)="onSubmit()">
+    <p>
+      <mat-form-field appearance="outline">
+        <mat-label #titleLabel>Title</mat-label>
+        <label for="blog-title"></label>
+        <input id="blog-title" matInput placeholder="Something Interesting ..." [formControl]="postTitle">
+        <mat-icon matSuffix>title</mat-icon>
+      </mat-form-field>
+      <ng-container *ngIf="postForm.invalid && postForm.touched">
+        <mat-error *ngIf="postForm.get('title').hasError('required')">{{titleLabel}} is Required</mat-error>
+        <mat-error *ngIf="postForm.get('title').hasError('minlength')">
+          {{titleLabel}} min length at least {{postForm.errors.minlength.requiredLength}}
+        </mat-error>
+      </ng-container>
+    </p>
+
+    <p>
+      <mat-form-field appearance="outline">
+        <mat-label>Content</mat-label>
+        <label for="blog-content"></label>
+        <input id="blog-content" matInput placeholder="Something Interesting ..." [formControl]="postContent">
+        <mat-icon matSuffix>notes</mat-icon>
+      </mat-form-field>
+    </p>
+
+    <p>
+      <button mat-raised-button="primary">Submit</button>
+    </p>
+  </form>
+
 </div>
+
+<p>
+  {{postForm.value | json}}
+</p>
