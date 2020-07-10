@@ -1,5 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
+import {PostService} from '../../services/post.service';
+import {Post} from '../../model/post';
 
 @Component({
   selector: 'app-blog-add',
@@ -11,7 +13,9 @@ export class BlogAddComponent implements OnInit {
   postTitle: FormControl;
   postContent: FormControl;
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(private formBuilder: FormBuilder,
+              private postService: PostService) {
+
   }
 
   ngOnInit(): void {
@@ -25,9 +29,13 @@ export class BlogAddComponent implements OnInit {
 
   onSubmit(): void {
     this.postForm.markAllAsTouched();
-    console.log(this.postForm.value);
     if (this.postForm.valid) {
-      console.log('This form is Valid');
+      alert('Form Valid');
+      const postSubmit: Partial<Post> = {
+        title: this.postForm.get('title').value,
+        body: this.postForm.get('content').value
+      };
+      this.postService.submitPost(postSubmit).subscribe(value => console.log(value));
     }
   }
 }

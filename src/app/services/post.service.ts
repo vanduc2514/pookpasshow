@@ -14,8 +14,12 @@ export class PostService {
   }
 
   getAll(count = 10): Observable<Post[]> {
-    return this.httpClient.get<Post[]>(`${this.API_URL}`).pipe(
+    return this.httpClient.get<Post[]>(this.API_URL).pipe(
       map(response => response.filter((post, index) => index < count))
     );
+  }
+
+  submitPost(postSubmit: Post): Observable<Post> {
+    return this.httpClient.post<Post>(this.API_URL, postSubmit);
   }
 }
