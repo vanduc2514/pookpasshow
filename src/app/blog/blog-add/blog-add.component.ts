@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {PostService} from '../../services/post.service';
 import {Post} from '../../model/post';
@@ -13,9 +13,11 @@ export class BlogAddComponent implements OnInit {
   postTitle: FormControl;
   postContent: FormControl;
 
+  @Output()
+  SubmittedPostEvent: EventEmitter<Post> = new EventEmitter<Post>();
+
   constructor(private formBuilder: FormBuilder,
               private postService: PostService) {
-
   }
 
   ngOnInit(): void {
@@ -35,7 +37,8 @@ export class BlogAddComponent implements OnInit {
         title: this.postForm.get('title').value,
         body: this.postForm.get('content').value
       };
-      this.postService.submitPost(postSubmit).subscribe(value => console.log(value));
+      this.postService.submitPost(postSubmit)
+        .subscribe(value => this.SubmittedPostEvent.emit(value));
     }
   }
 }

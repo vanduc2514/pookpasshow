@@ -18,4 +18,8 @@ export class BlogComponent implements OnInit {
       this.postList = value;
     });
   }
+
+  addToPostList(post: Post): void {
+    this.postList.unshift(post);
+  }
 }
