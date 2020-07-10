@@ -1,5 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
+import {Post} from '../model/post';
+import {PostService} from '../services/post.service';
 
 @Component({
   selector: 'app-blog',
@@ -10,8 +12,10 @@ export class BlogComponent implements OnInit {
   postForm: FormGroup;
   postTitle: FormControl;
   postContent: FormControl;
+  postList: Post[];
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(private formBuilder: FormBuilder,
+              private postService: PostService) {
   }
 
   ngOnInit(): void {
@@ -20,6 +24,10 @@ export class BlogComponent implements OnInit {
     this.postForm = this.formBuilder.group({
       title: this.postTitle,
       content: this.postContent
+    });
+
+    this.postService.getAll().subscribe(value => {
+      this.postList = value;
     });
   }
 

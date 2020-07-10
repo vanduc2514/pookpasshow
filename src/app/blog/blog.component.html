@@ -40,17 +40,21 @@
   </form>
   <br><br>
   <div fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="space-around center" fxLayoutGap="25px">
-    <mat-card fxFlex="calc(33%-25px)" fxFlex.sm="calc(50%-25px)">
-      <mat-card-header>
-        <div mat-card-avatar class="example-header-image"></div>
-        <mat-card-title>Post Title Here</mat-card-title>
-      </mat-card-header>
-      <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
-      <mat-card-actions>
-        <button mat-button>LIKE</button>
-        <button mat-button>SHARE</button>
-      </mat-card-actions>
-    </mat-card>
+    <ng-container *ngFor="let post of postList">
+      <mat-card fxFlex="calc(33%-25px)" fxFlex.sm="calc(50%-25px)">
+        <mat-card-header>
+          <div mat-card-avatar class="example-header-image"></div>
+          <mat-card-title>{{post.title}}</mat-card-title>
+        </mat-card-header>
+        <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+        <mat-card-actions>
+          <a mat-button>MORE</a>
+          <a mat-button>EDIT</a>
+          <a mat-button>DELETE</a>
+          <a mat-button>LIKE</a>
+        </mat-card-actions>
+      </mat-card>
+    </ng-container>
   </div>
 
 </div>
