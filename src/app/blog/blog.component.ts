@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Post} from '../model/post';
 import {PostService} from '../services/post.service';
 import {MatDialog} from '@angular/material/dialog';
-import {BlogEditDialogComponent} from './dialog/blog-edit/blog-edit-dialog.component';
+import {BlogEditDialogComponent} from './dialog/blog-edit-dialog/blog-edit-dialog.component';
 
 @Component({
   selector: 'app-blog',

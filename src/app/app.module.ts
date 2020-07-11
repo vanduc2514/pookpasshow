@@ -19,10 +19,11 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatCardModule} from '@angular/material/card';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
-import { BlogEditDialogComponent } from './blog/dialog/blog-edit/blog-edit-dialog.component';
+import { BlogEditDialogComponent } from './blog/dialog/blog-edit-dialog/blog-edit-dialog.component';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import { BlogFormComponent } from './blog/form/blog-form.component';
 import {MatDialogModule} from '@angular/material/dialog';
+import { BlogDeleteDialogComponent } from './blog/dialog/blog-delete-dialog/blog-delete-dialog.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import {MatDialogModule} from '@angular/material/dialog';
     BlogComponent,
     BlogEditDialogComponent,
     BlogFormComponent,
+    BlogDeleteDialogComponent,
   ],
   imports: [
     BrowserModule,
