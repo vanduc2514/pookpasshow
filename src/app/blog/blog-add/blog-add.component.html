@@ -1,46 +1,44 @@
-<mat-card>
-  <form [formGroup]="postForm" (ngSubmit)="onSubmit()">
-    <p>
-      <mat-form-field appearance="outline">
-        <mat-label #titleLabel>Title</mat-label>
-        <label for="blog-title"></label>
-        <input id="blog-title" matInput placeholder="Something Interesting ..." [formControl]="postTitle">
-        <mat-icon matSuffix>title</mat-icon>
-      </mat-form-field>
-      <ng-container *ngIf="postForm.invalid && postForm.touched">
-        <mat-error *ngIf="postForm.get('title').hasError('required')">
-          {{titleLabel.innerText}} is Required
-        </mat-error>
-        <mat-error *ngIf="postForm.get('title').hasError('minlength')">
-          {{titleLabel.innerText}} must contains at least {{postForm.get('title').errors.minlength["requiredLength"]}}
-          characters
-        </mat-error>
-      </ng-container>
-    </p>
+<form [formGroup]="postForm" (ngSubmit)="onSubmit()">
+  <p>
+    <mat-form-field appearance="outline">
+      <mat-label #titleLabel>Title</mat-label>
+      <label for="blog-title"></label>
+      <input id="blog-title" matInput placeholder="Something Interesting ..." [formControl]="postTitle">
+      <mat-icon matSuffix>title</mat-icon>
+    </mat-form-field>
+    <ng-container *ngIf="postForm.invalid && postForm.touched">
+      <mat-error *ngIf="postForm.get('title').hasError('required')">
+        {{titleLabel.innerText}} is Required
+      </mat-error>
+      <mat-error *ngIf="postForm.get('title').hasError('minlength')">
+        {{titleLabel.innerText}} must contains at least {{postForm.get('title').errors.minlength["requiredLength"]}}
+        characters
+      </mat-error>
+    </ng-container>
+  </p>
 
-    <p>
-      <mat-form-field appearance="outline" class="post-content">
-        <mat-label #contentLabel>Content</mat-label>
-        <label for="blog-content"></label>
-        <textarea id="blog-content"
-                  matInput
-                  placeholder=" Something Interesting ..."
-                  [formControl]="postContent"></textarea>
-        <!--        <input id="blog-content" matInput placeholder="Something Interesting ..." [formControl]="postContent">-->
-        <mat-icon matSuffix>notes</mat-icon>
-      </mat-form-field>
-      <ng-container *ngIf="postForm.invalid && postForm.touched">
-        <mat-error *ngIf="postForm.get('title').hasError('required')">
-          {{contentLabel.innerText}} is Required
-        </mat-error>
-        <mat-error *ngIf="postForm.get('title').hasError('minlength')">
-          {{contentLabel.innerText}} must contains at least {{postForm.get('title').errors.minlength["requiredLength"]}}
-          characters
-        </mat-error>
-      </ng-container>
-    </p>
-    <p>
-      <button mat-raised-button="primary">Submit</button>
-    </p>
-  </form>
-</mat-card>
+  <p>
+    <mat-form-field appearance="outline" class="post-content">
+      <mat-label #contentLabel>Content</mat-label>
+      <label for="blog-content"></label>
+      <textarea id="blog-content"
+                matInput
+                placeholder=" Something Interesting ..."
+                [formControl]="postContent"></textarea>
+      <!--        <input id="blog-content" matInput placeholder="Something Interesting ..." [formControl]="postContent">-->
+      <mat-icon matSuffix>notes</mat-icon>
+    </mat-form-field>
+    <ng-container *ngIf="postForm.invalid && postForm.touched">
+      <mat-error *ngIf="postForm.get('title').hasError('required')">
+        {{contentLabel.innerText}} is Required
+      </mat-error>
+      <mat-error *ngIf="postForm.get('title').hasError('minlength')">
+        {{contentLabel.innerText}} must contains at least {{postForm.get('title').errors.minlength["requiredLength"]}}
+        characters
+      </mat-error>
+    </ng-container>
+  </p>
+  <p>
+    <button mat-raised-button="primary">Submit</button>
+  </p>
+</form>
