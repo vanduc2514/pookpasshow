@@ -3,7 +3,7 @@ import {CommonModule} from '@angular/common';
 import {RouterModule, Routes} from '@angular/router';
 import {TodoComponent} from './todo/todo.component';
 import {BlogComponent} from './blog/blog.component';
-import {BlogAddComponent} from './blog/blog-add/blog-add.component';
+import {BlogDetailComponent} from './blog/blog-detail/blog-detail.component';
 
 const routes: Routes = [
   {
@@ -16,10 +16,10 @@ const routes: Routes = [
     children: [
       {
         path: ':id',
-        component: BlogAddComponent
+        component: BlogDetailComponent
       }
     ]
-  }
+  },
 ];
 
 @NgModule({
