@@ -25,7 +25,6 @@
                 matInput
                 placeholder=" Something Interesting ..."
                 [formControl]="postContent"></textarea>
-      <!--        <input id="blog-content" matInput placeholder="Something Interesting ..." [formControl]="postContent">-->
       <mat-icon matSuffix>notes</mat-icon>
     </mat-form-field>
     <ng-container *ngIf="postForm.invalid && postForm.touched">
@@ -40,5 +39,6 @@
   </p>
   <p>
     <button mat-raised-button="primary">Submit</button>
+    <ng-content></ng-content>
   </p>
 </form>
