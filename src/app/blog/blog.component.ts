@@ -26,8 +26,13 @@ export class BlogComponent implements OnInit {
     this.postList.unshift(post);
   }
 
-  showEditDialog(): void {
-    const dialogRef = this.dialog.open(BlogEditComponent);
+  showEditDialog(post: Post): void {
+    const dialogRef = this.dialog.open(BlogEditComponent, {
+      data: {
+        title: post.title,
+        content: post.body
+      }
+    });
   }
 
   showDeleteDialog(): void {

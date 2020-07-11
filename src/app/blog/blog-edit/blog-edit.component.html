@@ -1,6 +1,6 @@
 <h1 mat-dialog-title>Edit Post</h1>
 <div mat-dialog-content>
-  <app-blog-add>
+  <app-blog-add [stateContent]="data.content" [stateTitle]="data.title">
     <button mat-raised-button color="warn" style="float: right; display: block;">Close</button>
   </app-blog-add>
 </div>

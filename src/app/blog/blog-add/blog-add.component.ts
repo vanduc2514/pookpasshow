@@ -1,4 +1,4 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {PostService} from '../../services/post.service';
 import {Post} from '../../model/post';
@@ -13,6 +13,12 @@ export class BlogAddComponent implements OnInit {
   postTitle: FormControl;
   postContent: FormControl;
 
+  @Input()
+  stateTitle = '';
+
+  @Input()
+  stateContent = '';
+
   @Output()
   SubmittedPostEvent: EventEmitter<Post> = new EventEmitter<Post>();
 
@@ -21,8 +27,11 @@ export class BlogAddComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.postTitle = new FormControl('', [Validators.required, Validators.minLength(15)]);
-    this.postContent = new FormControl('', [Validators.required, Validators.minLength(20)]);
+    this.postTitle = new FormControl(this.stateTitle,
+      [Validators.required, Validators.minLength(15)]);
+    this.postContent = new FormControl(this.stateContent,
+      [Validators.required, Validators.minLength(20)]);
+
     this.postForm = this.formBuilder.group({
       title: this.postTitle,
       content: this.postContent
