@@ -1,6 +1,7 @@
 import {Component, Inject, OnInit} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
 import {BlogComponent} from '../blog.component';
+import {Post} from '../../model/post';
 
 @Component({
   selector: 'app-blog-edit',
@@ -10,13 +11,16 @@ import {BlogComponent} from '../blog.component';
 export class BlogEditComponent implements OnInit {
 
   constructor(
-    private dialogRef: MatDialogRef<BlogComponent>,
+    public dialogRef: MatDialogRef<BlogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any
-  ) {}
-
-  ngOnInit(): void {
-    console.log(this.dialogRef);
-    console.log(this.data);
+  ) {
   }
 
+  ngOnInit(): void {
+  }
+
+  onSubmitForm(post: Post): void {
+    this.dialogRef.close();
+    console.log(post);
+  }
 }

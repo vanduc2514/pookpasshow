@@ -41,7 +41,6 @@ export class BlogFormComponent implements OnInit {
   onSubmit(): void {
     this.postForm.markAllAsTouched();
     if (this.postForm.valid) {
-      alert('Form Valid');
       const postSubmit: Partial<Post> = {
         title: this.postForm.get('title').value,
         body: this.postForm.get('content').value
