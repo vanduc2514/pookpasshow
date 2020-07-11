@@ -5,7 +5,7 @@
       <app-blog-form (SubmittedPostEvent)="addToPostList($event)"></app-blog-form>
     </mat-card>
     <br><br>
-    <ng-container *ngFor="let post of postList">
+    <ng-container *ngFor="let post of postList; index as i">
       <mat-card fxFlex="calc(33%-35px)" fxFlex.sm="calc(50%-25px)">
         <mat-card-header>
           <div mat-card-avatar class="example-header-image"></div>
@@ -13,7 +13,7 @@
         </mat-card-header>
         <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
         <mat-card-actions>
-          <a (click)="showEditDialog(post)" mat-button>EDIT</a>
+          <a (click)="showEditDialog(i)" mat-button>EDIT</a>
           <a (click)="showDeleteDialog()" mat-button>DELETE</a>
           <a mat-button>LIKE</a>
         </mat-card-actions>

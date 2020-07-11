@@ -11,7 +11,6 @@ import {BlogEditComponent} from './blog-edit/blog-edit.component';
 })
 export class BlogComponent implements OnInit {
   postList: Post[];
-  postSelected: Post;
 
   constructor(private postService: PostService,
               private dialog: MatDialog) {
@@ -27,7 +26,8 @@ export class BlogComponent implements OnInit {
     this.postList.unshift(post);
   }
 
-  showEditDialog(post: Post): void {
+  showEditDialog(index: number): void {
+    const post = this.postList[index];
     const dialogRef = this.dialog.open(BlogEditComponent, {
       width: '1000px',
       data: {
@@ -37,15 +37,13 @@ export class BlogComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      this.postSelected = result;
+      this.postService.updatePost(result).subscribe(response =>
+        this.postList[index] = response
+      );
     });
   }
 
   showDeleteDialog(): void {
 
-  }
-
-  updateSelectedPost(): void {
-    this.postService.updatePost(this.postSelected);
   }
 }
