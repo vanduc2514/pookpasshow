@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Post} from '../model/post';
 import {PostService} from '../services/post.service';
 import {MatDialog} from '@angular/material/dialog';
-import {BlogEditComponent} from './blog-edit/blog-edit.component';
+import {BlogEditDialogComponent} from './dialog/blog-edit/blog-edit-dialog.component';
 
 @Component({
   selector: 'app-blog',
@@ -28,7 +28,7 @@ export class BlogComponent implements OnInit {
 
   showEditDialog(index: number): void {
     const post = this.postList[index];
-    const dialogRef = this.dialog.open(BlogEditComponent, {
+    const dialogRef = this.dialog.open(BlogEditDialogComponent, {
       width: '1000px',
       data: {
         title: post.title,

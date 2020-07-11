@@ -1,14 +1,14 @@
 import {Component, Inject, OnInit} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
-import {BlogComponent} from '../blog.component';
-import {Post} from '../../model/post';
+import {BlogComponent} from '../../blog.component';
+import {Post} from '../../../model/post';
 
 @Component({
-  selector: 'app-blog-edit',
-  templateUrl: './blog-edit.component.html',
-  styleUrls: ['./blog-edit.component.scss']
+  selector: 'app-blog-edit-dialog',
+  templateUrl: './blog-edit-dialog.component.html',
+  styleUrls: ['./blog-edit-dialog.component.scss']
 })
-export class BlogEditComponent implements OnInit {
+export class BlogEditDialogComponent implements OnInit {
   post: Post;
 
   constructor(

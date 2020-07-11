@@ -19,9 +19,9 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatCardModule} from '@angular/material/card';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
-import { BlogEditComponent } from './blog/blog-edit/blog-edit.component';
+import { BlogEditDialogComponent } from './blog/dialog/blog-edit/blog-edit-dialog.component';
 import {FlexLayoutModule} from '@angular/flex-layout';
-import { BlogFormComponent } from './blog/blog-form/blog-form.component';
+import { BlogFormComponent } from './blog/form/blog-form.component';
 import {MatDialogModule} from '@angular/material/dialog';
 
 @NgModule({
@@ -29,7 +29,7 @@ import {MatDialogModule} from '@angular/material/dialog';
     AppComponent,
     TodoComponent,
     BlogComponent,
-    BlogEditComponent,
+    BlogEditDialogComponent,
     BlogFormComponent,
   ],
   imports: [
