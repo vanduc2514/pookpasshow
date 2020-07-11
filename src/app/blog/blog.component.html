@@ -2,7 +2,7 @@
 
   <div fxLayout="column" fxLayout.xs="column" fxLayoutAlign="space-between center" fxLayoutGap="25px">
     <mat-card fxFlex="calc(33%-35px)" fxFlex.sm="calc(50%-25px)">
-      <app-blog-add (SubmittedPostEvent)="addToPostList($event)"></app-blog-add>
+      <app-blog-form (SubmittedPostEvent)="addToPostList($event)"></app-blog-form>
     </mat-card>
     <br><br>
     <ng-container *ngFor="let post of postList">

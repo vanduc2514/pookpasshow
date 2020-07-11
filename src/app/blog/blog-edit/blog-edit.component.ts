@@ -12,8 +12,7 @@ export class BlogEditComponent implements OnInit {
   constructor(
     private dialogRef: MatDialogRef<BlogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any
-  ) {
-  }
+  ) {}
 
   ngOnInit(): void {
     console.log(this.dialogRef);

@@ -4,11 +4,11 @@ import {PostService} from '../../services/post.service';
 import {Post} from '../../model/post';
 
 @Component({
-  selector: 'app-blog-add',
-  templateUrl: './blog-add.component.html',
-  styleUrls: ['./blog-add.component.scss']
+  selector: 'app-blog-form',
+  templateUrl: './blog-form.component.html',
+  styleUrls: ['./blog-form.component.scss']
 })
-export class BlogAddComponent implements OnInit {
+export class BlogFormComponent implements OnInit {
   postForm: FormGroup;
   postTitle: FormControl;
   postContent: FormControl;

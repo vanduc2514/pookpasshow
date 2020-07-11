@@ -21,7 +21,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import { BlogEditComponent } from './blog/blog-edit/blog-edit.component';
 import {FlexLayoutModule} from '@angular/flex-layout';
-import { BlogAddComponent } from './blog/blog-add/blog-add.component';
+import { BlogFormComponent } from './blog/blog-form/blog-form.component';
 import {MatDialogModule} from '@angular/material/dialog';
 
 @NgModule({
@@ -30,7 +30,7 @@ import {MatDialogModule} from '@angular/material/dialog';
     TodoComponent,
     BlogComponent,
     BlogEditComponent,
-    BlogAddComponent,
+    BlogFormComponent,
   ],
   imports: [
     BrowserModule,
