@@ -1,6 +1,8 @@
 <h1 mat-dialog-title>Edit Post</h1>
 <div mat-dialog-content>
   <app-blog-form [stateContent]="data.content" [stateTitle]="data.title" (SubmittedPostEvent)=onSubmitForm($event)>
-    <button type="button" mat-raised-button color="warn" style="float: right; display: block;" (click)="dialogRef.close()">Close</button>
+    <button type="button" mat-raised-button color="warn" style="float: right; display: block;"
+            (click)="dialogRef.close(post)">Close
+    </button>
   </app-blog-form>
 </div>

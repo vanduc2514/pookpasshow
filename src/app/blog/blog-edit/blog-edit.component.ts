@@ -9,6 +9,7 @@ import {Post} from '../../model/post';
   styleUrls: ['./blog-edit.component.scss']
 })
 export class BlogEditComponent implements OnInit {
+  post: Post;
 
   constructor(
     public dialogRef: MatDialogRef<BlogComponent>,
@@ -17,10 +18,11 @@ export class BlogEditComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.post = this.data;
   }
 
   onSubmitForm(post: Post): void {
-    this.dialogRef.close();
-    console.log(post);
+    this.post = post;
+    this.dialogRef.close(this.post);
   }
 }

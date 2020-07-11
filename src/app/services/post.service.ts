@@ -22,4 +22,8 @@ export class PostService {
   submitPost(postSubmit: Post): Observable<Post> {
     return this.httpClient.post<Post>(this.API_URL, postSubmit);
   }
+
+  updatePost(postSelected: Post): Observable<Post> {
+    return this.httpClient.patch<Post>(`${this.API_URL}/${postSelected.id}`, postSelected);
+  }
 }
