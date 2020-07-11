@@ -28,6 +28,7 @@ export class BlogComponent implements OnInit {
 
   showEditDialog(post: Post): void {
     this.dialog.open(BlogEditComponent, {
+      width: '1000px',
       data: {
         title: post.title,
         content: post.body
