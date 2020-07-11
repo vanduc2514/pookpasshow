@@ -26,4 +26,8 @@ export class PostService {
   updatePost(postSelected: Post): Observable<Post> {
     return this.httpClient.patch<Post>(`${this.API_URL}/${postSelected.id}`, postSelected);
   }
+
+  deletePost(index: number): Observable<any> {
+    return this.httpClient.delete(`${this.API_URL}/${index}`);
+  }
 }

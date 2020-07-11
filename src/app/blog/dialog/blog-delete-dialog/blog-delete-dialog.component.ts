@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {MatDialogRef} from '@angular/material/dialog';
+import {BlogComponent} from '../../blog.component';
 
 @Component({
   selector: 'app-blog-delete-dialog',
@@ -7,7 +9,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BlogDeleteDialogComponent implements OnInit {
 
-  constructor() { }
+  constructor(public dialogRef: MatDialogRef<BlogComponent>) {
+  }
 
   ngOnInit(): void {
   }

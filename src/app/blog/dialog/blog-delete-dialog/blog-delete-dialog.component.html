@@ -1,3 +1,8 @@
-<div mat-dialog-title>
-  <p>blog-delete-dialog works!</p>
+<h1 mat-dialog-title>Delete Post</h1>
+<div mat-dialog-content>
+  <h3>Do you want to delete ?</h3>
+  <button type="button" mat-raised-button color="warn" (click)="dialogRef.close(true)">Yes</button>
+  <button type="button" mat-raised-button color="primary" style="float: right; display: block"
+          (click)="dialogRef.close(false)">No
+  </button>
 </div>

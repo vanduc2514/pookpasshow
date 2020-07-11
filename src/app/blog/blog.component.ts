@@ -45,6 +45,16 @@ export class BlogComponent implements OnInit {
   }
 
   showDeleteDialog(index: number): void {
+    const post = this.postList[index];
     const dialogRef = this.dialog.open(BlogDeleteDialogComponent);
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.postService.deletePost(post.id).subscribe(() => {
+          this.postList = this.postList.filter(currentPost =>
+            currentPost.id !== post.id
+          );
+        });
+      }
+    });
   }
 }
