@@ -3,7 +3,6 @@ import {CommonModule} from '@angular/common';
 import {RouterModule, Routes} from '@angular/router';
 import {TodoComponent} from './todo/todo.component';
 import {BlogComponent} from './blog/blog.component';
-import {BlogDetailComponent} from './blog/blog-detail/blog-detail.component';
 
 const routes: Routes = [
   {
@@ -12,13 +11,7 @@ const routes: Routes = [
   },
   {
     path: 'blog',
-    component: BlogComponent,
-    children: [
-      {
-        path: ':id',
-        component: BlogDetailComponent
-      }
-    ]
+    component: BlogComponent
   },
 ];
 

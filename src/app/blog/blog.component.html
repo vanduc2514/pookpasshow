@@ -14,7 +14,8 @@
         </mat-card-header>
         <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
         <mat-card-actions>
-          <a [routerLink]="['/blog', post.id]" mat-button>MORE</a>
+          <a (click)="showEditDialog()" mat-button>EDIT</a>
+          <a (click)="showDeleteDialog()" mat-button>DELETE</a>
           <a mat-button>LIKE</a>
         </mat-card-actions>
         <mat-card-content>
@@ -23,6 +24,5 @@
       </mat-card>
     </ng-container>
   </div>
-
 
 </div>

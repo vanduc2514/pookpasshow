@@ -22,4 +22,12 @@ export class BlogComponent implements OnInit {
   addToPostList(post: Post): void {
     this.postList.unshift(post);
   }
+
+  showEditDialog(): void {
+
+  }
+
+  showDeleteDialog(): void {
+
+  }
 }
