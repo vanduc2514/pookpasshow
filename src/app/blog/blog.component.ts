@@ -3,6 +3,7 @@ import {Post} from '../model/post';
 import {PostService} from '../services/post.service';
 import {MatDialog} from '@angular/material/dialog';
 import {BlogEditDialogComponent} from './dialog/blog-edit-dialog/blog-edit-dialog.component';
+import {BlogDeleteDialogComponent} from './dialog/blog-delete-dialog/blog-delete-dialog.component';
 
 @Component({
   selector: 'app-blog',
@@ -43,7 +44,7 @@ export class BlogComponent implements OnInit {
     });
   }
 
-  showDeleteDialog(): void {
-
+  showDeleteDialog(index: number): void {
+    const dialogRef = this.dialog.open(BlogDeleteDialogComponent);
   }
 }
