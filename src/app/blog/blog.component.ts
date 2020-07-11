@@ -27,7 +27,7 @@ export class BlogComponent implements OnInit {
   }
 
   showEditDialog(post: Post): void {
-    const dialogRef = this.dialog.open(BlogEditComponent, {
+    this.dialog.open(BlogEditComponent, {
       data: {
         title: post.title,
         content: post.body
