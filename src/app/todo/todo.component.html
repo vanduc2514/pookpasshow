@@ -1,21 +1,42 @@
 <div class="mat-app-background basic-container">
-  <form [formGroup]="todoFormGroup" (ngSubmit)="onSubmit()">
+  <form [formGroup]="todoForm" (ngSubmit)="onSubmit()">
     <p>
       <mat-form-field appearance="outline">
-        <mat-label>Title</mat-label>
+        <mat-label #titleLabel>Title</mat-label>
         <label for="todo-title"></label>
-        <input id="todo-title" matInput placeholder="Placeholder" [formControl]="titleControl">
+        <input id="todo-title" matInput placeholder="Placeholder" [formControl]="titleControl"
+               [errorStateMatcher]="matcher">
         <mat-icon matSuffix>title</mat-icon>
       </mat-form-field>
+      <ng-container *ngIf="todoForm.invalid && todoForm.touched">
+        <mat-error *ngIf="todoForm.get('title').hasError('required')">
+          {{titleLabel.innerText}} is Required
+        </mat-error>
+        <mat-error *ngIf="todoForm.get('title').hasError('minlength')">
+          {{titleLabel.innerText}} must contains at least {{todoForm.get('title').errors.minlength["requiredLength"]}}
+          characters
+        </mat-error>
+      </ng-container>
     </p>
 
     <p>
       <mat-form-field appearance="outline">
-        <mat-label>Content</mat-label>
+        <mat-label #contentLabel>Content</mat-label>
         <label for="todo-content"></label>
-        <input id="todo-content" matInput placeholder="Placeholder" [formControl]="contentControl">
-        <mat-icon matSuffix>title</mat-icon>
+        <input id="todo-content" matInput placeholder="Placeholder" [formControl]="contentControl"
+               [errorStateMatcher]="matcher">
+        <mat-icon matSuffix>notes</mat-icon>
       </mat-form-field>
+      <ng-container *ngIf="todoForm.invalid && todoForm.touched">
+        <mat-error *ngIf="todoForm.get('content').hasError('required')">
+          {{contentLabel.innerText}} is Required
+        </mat-error>
+        <mat-error *ngIf="todoForm.get('content').hasError('minlength')">
+          {{contentLabel.innerText}} must contains at
+          least {{todoForm.get('content').errors.minlength["requiredLength"]}}
+          characters
+        </mat-error>
+      </ng-container>
     </p>
 
     <button type="submit" mat-raised-button color="primary">Submit</button>

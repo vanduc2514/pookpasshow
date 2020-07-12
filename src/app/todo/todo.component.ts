@@ -1,8 +1,16 @@
 import {Component, OnInit} from '@angular/core';
 import {ITodo} from '../model/itodo';
-import {FormBuilder, FormControl, FormGroup} from '@angular/forms';
+import {FormBuilder, FormControl, FormGroup, FormGroupDirective, NgForm, Validators} from '@angular/forms';
 import {TodoService} from '../todo.service';
 import {Observer} from 'rxjs';
+import {ErrorStateMatcher} from '@angular/material/core';
+
+export class CustomErrorsStateMatcher extends ErrorStateMatcher {
+  isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
+    return !!((control && control.touched && control.invalid));
+  }
+
+}
 
 @Component({
   selector: 'app-todo',
@@ -11,18 +19,25 @@ import {Observer} from 'rxjs';
 })
 export class TodoComponent implements OnInit {
   todoList: ITodo[] = [];
-  todoFormGroup: FormGroup;
-  titleControl = new FormControl('');
-  contentControl = new FormControl('');
+  todoForm: FormGroup;
+  titleControl: FormControl;
+  contentControl: FormControl;
+  matcher: ErrorStateMatcher;
 
   constructor(private todoService: TodoService, private formBuilder: FormBuilder) {
   }
 
   ngOnInit(): void {
-    this.todoFormGroup = this.formBuilder.group({
+    this.titleControl = new FormControl('',
+      [Validators.required, Validators.minLength(5)]);
+    this.contentControl = new FormControl('',
+      [Validators.required, Validators.minLength(10)]);
+    this.todoForm = this.formBuilder.group({
       title: this.titleControl,
       content: this.contentControl
     });
+    this.matcher = new CustomErrorsStateMatcher();
+
     const observer: Observer<any> = {
       next: (data) => this.todoList = data,
       error: (error) => console.log(error),
@@ -44,20 +59,18 @@ export class TodoComponent implements OnInit {
 
   addTodo(): void {
     const todo: Partial<ITodo> = {
-      title: this.todoFormGroup.get('title').value,
-      content: this.todoFormGroup.get('content').value,
+      title: this.todoForm.get('title').value,
+      content: this.todoForm.get('content').value,
     };
     this.todoService.createTodo(todo).subscribe(next => {
       this.todoList.unshift(next);
-      this.titleControl.setValue('');
     });
   }
 
   deleteTodo(i): void {
     const todo = this.todoList[i];
     this.todoService.deleteTodo(todo.id).subscribe(
-      (next) => {
-        console.log(next);
+      () => {
         this.todoList = this.todoList.filter(
           t => t.id !== todo.id
         );
@@ -66,7 +79,10 @@ export class TodoComponent implements OnInit {
   }
 
   onSubmit(): void {
-    console.log(this.todoFormGroup);
-    this.addTodo();
+    this.todoForm.markAllAsTouched();
+    if (this.todoForm.valid) {
+      this.addTodo();
+      this.todoForm.reset();
+    }
   }
 }
