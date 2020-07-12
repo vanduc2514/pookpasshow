@@ -1,13 +1,27 @@
 <div class="mat-app-background basic-container">
+  <form [formGroup]="todoFormGroup" (ngSubmit)="onSubmit()">
+    <p>
+      <mat-form-field appearance="outline">
+        <mat-label>Title</mat-label>
+        <label for="todo-title"></label>
+        <input id="todo-title" matInput placeholder="Placeholder" [formControl]="titleControl">
+        <mat-icon matSuffix>title</mat-icon>
+      </mat-form-field>
+    </p>
 
-  <p>
-    <mat-form-field appearance="outline">
-      <mat-label>Add Todo</mat-label>
-      <label for="input-todo"></label>
-      <input id="input-todo" matInput placeholder="Placeholder" [formControl]="inputControl" (keydown.enter)="addTodo()">
-      <mat-icon matSuffix>create</mat-icon>
-    </mat-form-field>
-  </p>
+    <p>
+      <mat-form-field appearance="outline">
+        <mat-label>Content</mat-label>
+        <label for="todo-content"></label>
+        <input id="todo-content" matInput placeholder="Placeholder" [formControl]="contentControl">
+        <mat-icon matSuffix>title</mat-icon>
+      </mat-form-field>
+    </p>
+
+    <button type="submit" mat-raised-button color="primary">Submit</button>
+  </form>
+
+  <br>
 
   <ng-container *ngFor="let todo of todoList; index as i">
     <mat-accordion>

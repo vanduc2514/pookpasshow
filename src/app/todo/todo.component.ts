@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {ITodo} from '../model/itodo';
-import {FormControl} from '@angular/forms';
+import {FormBuilder, FormControl, FormGroup} from '@angular/forms';
 import {TodoService} from '../todo.service';
 import {Observer} from 'rxjs';
 
@@ -11,12 +11,18 @@ import {Observer} from 'rxjs';
 })
 export class TodoComponent implements OnInit {
   todoList: ITodo[] = [];
-  inputControl = new FormControl('');
+  todoFormGroup: FormGroup;
+  titleControl = new FormControl('');
+  contentControl = new FormControl('');
 
-  constructor(private todoService: TodoService) {
+  constructor(private todoService: TodoService, private formBuilder: FormBuilder) {
   }
 
   ngOnInit(): void {
+    this.todoFormGroup = this.formBuilder.group({
+      title: this.titleControl,
+      content: this.contentControl
+    });
     const observer: Observer<any> = {
       next: (data) => this.todoList = data,
       error: (error) => console.log(error),
@@ -38,12 +44,12 @@ export class TodoComponent implements OnInit {
 
   addTodo(): void {
     const todo: Partial<ITodo> = {
-      title: this.inputControl.value,
-      completed: false
+      title: this.todoFormGroup.get('title').value,
+      content: this.todoFormGroup.get('content').value,
     };
     this.todoService.createTodo(todo).subscribe(next => {
       this.todoList.unshift(next);
-      this.inputControl.setValue('');
+      this.titleControl.setValue('');
     });
   }
 
@@ -59,4 +65,8 @@ export class TodoComponent implements OnInit {
     );
   }
 
+  onSubmit(): void {
+    console.log(this.todoFormGroup);
+    this.addTodo();
+  }
 }
