@@ -52,7 +52,7 @@
             {{todo.title}}
           </mat-panel-title>
           <mat-panel-description>
-            <mat-checkbox (click)="toggleTodo(i)">Done</mat-checkbox>
+            <mat-checkbox (click)="toggleTodo(i)" [checked]="todo.completed">Done</mat-checkbox>
           </mat-panel-description>
         </mat-expansion-panel-header>
         <mat-card>
