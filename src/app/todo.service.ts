@@ -8,7 +8,7 @@ import {map} from 'rxjs/operators';
   providedIn: 'root'
 })
 export class TodoService {
-  private readonly API_URL = 'http://jsonplaceholder.typicode.com/todos';
+  private readonly API_URL = 'https://jsonplaceholder.typicode.com/todos';
 
   constructor(private httpClient: HttpClient) {
   }

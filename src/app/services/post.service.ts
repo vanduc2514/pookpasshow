@@ -8,7 +8,7 @@ import {map} from 'rxjs/operators';
   providedIn: 'root'
 })
 export class PostService {
-  private readonly API_URL = 'http://jsonplaceholder.typicode.com/posts';
+  private readonly API_URL = 'https://jsonplaceholder.typicode.com/posts';
 
   constructor(private httpClient: HttpClient) {
   }
