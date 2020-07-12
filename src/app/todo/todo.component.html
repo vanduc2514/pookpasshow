@@ -22,7 +22,7 @@
         </mat-expansion-panel-header>
         <mat-card>
           <div class="todo-detail">
-            <span [class.completed]="todo.completed">Id: {{todo.id}}</span>
+            <span [class.completed]="todo.completed">{{todo.content}}</span>
             <button mat-raised-button color="warn" (click)="deleteTodo(i)">Delete</button>
           </div>
         </mat-card>

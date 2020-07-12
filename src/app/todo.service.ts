@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {ITodo} from './model/itodo';
 import {map} from 'rxjs/operators';
@@ -8,13 +8,18 @@ import {map} from 'rxjs/operators';
   providedIn: 'root'
 })
 export class TodoService {
-  private readonly API_URL = 'https://jsonplaceholder.typicode.com/todos';
+  private readonly API_URL = 'https://pookpasshow-backend.herokuapp.com/todos';
+  private readonly headers = new HttpHeaders()
+    .append('Content-Type', 'application/json')
+    .append('Access-Control-Allow-Headers', 'Content-Type')
+    .append('Access-Control-Allow-Methods', 'GET')
+    .append('Access-Control-Allow-Origin', '*');
 
   constructor(private httpClient: HttpClient) {
   }
 
   getTodoList(count = 10): Observable<ITodo[]> {
-    return this.httpClient.get<ITodo[]>(this.API_URL).pipe(
+    return this.httpClient.get<ITodo[]>(this.API_URL, {headers: this.headers}).pipe(
       map(data => data.filter((todo, index) => index < count)
       ));
   }
