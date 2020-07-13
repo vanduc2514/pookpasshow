@@ -25,7 +25,8 @@ import { BlogFormComponent } from './blog/form/blog-form.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import { BlogDeleteDialogComponent } from './blog/dialog/blog-delete-dialog/blog-delete-dialog.component';
 import { LoginComponent } from './login/login.component';
-import {MatTabsModule} from "@angular/material/tabs";
+import {MatTabsModule} from '@angular/material/tabs';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -58,7 +59,8 @@ import {MatTabsModule} from "@angular/material/tabs";
     MatInputModule,
     FlexLayoutModule,
     MatDialogModule,
-    FormsModule
+    FormsModule,
+    MatSnackBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]
