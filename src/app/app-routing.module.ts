@@ -3,16 +3,23 @@ import {CommonModule} from '@angular/common';
 import {RouterModule, Routes} from '@angular/router';
 import {TodoComponent} from './todo/todo.component';
 import {BlogComponent} from './blog/blog.component';
+import {LoginComponent} from './login/login.component';
 
 const routes: Routes = [
   {
-    path: 'todo',
-    component: TodoComponent
-  },
-  {
-    path: 'blog',
-    component: BlogComponent
-  },
+    path: 'login',
+    component: LoginComponent,
+    children: [
+      {
+        path: 'todo',
+        component: TodoComponent
+      },
+      {
+        path: 'blog',
+        component: BlogComponent
+      }
+    ]
+  }
 ];
 
 @NgModule({
