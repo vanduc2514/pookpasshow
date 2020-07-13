@@ -1,6 +1,6 @@
 # Pook Pass How
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.1.
+This is an angular project which let user make note and diary
 
 ## Development server
 
