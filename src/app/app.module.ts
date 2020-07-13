@@ -24,6 +24,8 @@ import {FlexLayoutModule} from '@angular/flex-layout';
 import { BlogFormComponent } from './blog/form/blog-form.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import { BlogDeleteDialogComponent } from './blog/dialog/blog-delete-dialog/blog-delete-dialog.component';
+import { LoginComponent } from './login/login.component';
+import {MatTabsModule} from "@angular/material/tabs";
 
 @NgModule({
   declarations: [
@@ -33,6 +35,7 @@ import { BlogDeleteDialogComponent } from './blog/dialog/blog-delete-dialog/blog
     BlogEditDialogComponent,
     BlogFormComponent,
     BlogDeleteDialogComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
@@ -50,6 +53,7 @@ import { BlogDeleteDialogComponent } from './blog/dialog/blog-delete-dialog/blog
     MatExpansionModule,
     MatCheckboxModule,
     MatCardModule,
+    MatTabsModule,
     MatFormFieldModule,
     MatInputModule,
     FlexLayoutModule,
